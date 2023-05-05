@@ -43,8 +43,8 @@ public class LoginService extends AbstractService {
 	public LoginResponse doLogin(LoginRequest request) throws AutenticatorException {
 		if(request.getUsuario() == null
 				|| request.getSenha() == null
-				|| request.getUsuario().isBlank()
-				|| request.getSenha().isBlank()) {	
+				|| request.getUsuario() == null || request.getUsuario().isEmpty()
+				|| request.getSenha() == null || request.getSenha().isEmpty() ) {	
 			throw new AutenticatorException("Usuário e(ou) Senha inválidos!");
 		}
 		else if (!_USUARIOS.contains(request)) {			
